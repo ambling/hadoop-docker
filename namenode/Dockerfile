@@ -10,7 +10,7 @@ RUN mkdir /build
 ADD . /build
 #RUN rpm -Uvh /build/cloudera-cdh-5-0.x86_64.rpm
 RUN rpm -Uvh http://archive.cloudera.com/cdh5/one-click-install/redhat/6/x86_64/cloudera-cdh-5-0.x86_64.rpm
-RUN yum install -y openssh hadoop-hdfs-namenode
+RUN yum install -y openssh java-1.6.0-openjdk-devel hadoop-hdfs-namenode
 
 # config hadoop
 # you have to configure hostname and ssh public keys first
@@ -18,22 +18,29 @@ RUN cp -r /build/conf.cluster /etc/hadoop/
 RUN alternatives --install /etc/hadoop/conf hadoop-conf /etc/hadoop/conf.cluster 50 
 RUN alternatives --set hadoop-conf /etc/hadoop/conf.cluster
 
-# add necessary user
+# change user 
 # RUN adduser -M hadoop
 # RUN adduser -M hdfs  # the installation will automatically add the user of hdfs
+USER hdfs
 
 # make necessary directories
 RUN mkdir -p /var/lib/hadoop-hdfs/cache/hdfs/dfs/name
-RUN chown -R hdfs:hdfs /var/lib/hadoop-hdfs/cache/hdfs
+# RUN chown -R hdfs:hadoop /var/lib/hadoop-hdfs/cache/hdfs
 RUN chmod -R 700 /var/lib/hadoop-hdfs/cache/hdfs/dfs
 
 # format the hdfs
-RUN sudo -u hdfs hdfs namenode -format
+RUN hdfs namenode -format
 
 # ports for namenode
-EXPOSE 8020	# fs.default.name/fs.defaultFS TCP
-EXPOSE 50070	# dfs.http.address/dfs.namenode.http-address TCP
-EXPOSE 50470	# dfs.https.address/dfs.namenode.https-address TCP
+# fs.default.name/fs.defaultFS TCP
+EXPOSE 8020	
+# dfs.http.address/dfs.namenode.http-address TCP
+EXPOSE 50070	
+# dfs.https.address/dfs.namenode.https-address TCP
+EXPOSE 50470	
+
+# change user back to boot
+USER root
 
 # config supervisor
 RUN mv /build/supervisord.conf /etc/
