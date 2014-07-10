@@ -1,0 +1,16 @@
+$ORIGIN ambling.org.
+$TTL 86400
+@     IN     SOA    dns.ambling.org.     hostmaster.ambling.org. (
+                    2001062501 ; serial
+                    21600      ; refresh after 6 hours
+                    3600       ; retry after 1 hour
+                    604800     ; expire after 1 week
+                    86400 )    ; minimum TTL of 1 day
+
+      IN     NS     dns.ambling.org.
+
+              IN     A       172.17.42.100
+
+namenode      IN     A       172.17.42.3
+datanode1     IN     A       172.17.42.4
+dns           IN     A       172.17.42.100

@@ -1,0 +1,14 @@
+$ORIGIN 42.17.172.in-addr.arpa.
+$TTL 86400
+42.17.172.in-addr.arpa.	IN     SOA    dns.ambling.org.     hostmaster.ambling.org. (
+                    	2001062501 ; serial
+                    	21600      ; refresh after 6 hours
+                    	3600       ; retry after 1 hour
+                    	604800     ; expire after 1 week
+                    	86400 )    ; minimum TTL of 1 day
+;
+
+42.17.172.in-addr.arpa.    IN     NS     dns.ambling.org.
+
+3.42.17.172.in-addr.arpa.      IN     PTR    namenode.ambling.org.
+4.42.17.172.in-addr.arpa.      IN     PTR    datanode1.ambling.org.

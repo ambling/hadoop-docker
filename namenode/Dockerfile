@@ -31,13 +31,13 @@ RUN chmod -R 700 /var/lib/hadoop-hdfs/cache/hdfs/dfs
 # format the hdfs
 RUN hdfs namenode -format
 
-# ports for namenode
+# ports for namenode (deprecated, use -p in docker run command, see startup.sh)
 # fs.default.name/fs.defaultFS TCP
-EXPOSE 8020	
+#EXPOSE 8020	
 # dfs.http.address/dfs.namenode.http-address TCP
-EXPOSE 50070	
+#EXPOSE 50070	
 # dfs.https.address/dfs.namenode.https-address TCP
-EXPOSE 50470	
+#EXPOSE 50470	
 
 # change user back to boot
 USER root
