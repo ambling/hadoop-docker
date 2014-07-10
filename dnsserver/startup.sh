@@ -5,5 +5,4 @@
 # You should run this script ONLY ONCE if there is nothing unexpected happened.
 # You can just start the container next time if the container is ran from image.
 
-# the variable of --rm is used for testing purposes, delete it in production envrionment
-docker run -i -t -h dnsserver --name dnsserver dnsserver:base
+docker run -d -t -h dnsserver --name dnsserver dnsserver:base
