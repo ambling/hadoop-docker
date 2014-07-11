@@ -8,9 +8,7 @@ ENV key val
 # add chd5 yum repo for centos6 and install hadoop
 RUN mkdir /build
 ADD . /build
-#RUN rpm -Uvh /build/cloudera-cdh-5-0.x86_64.rpm
-RUN rpm -Uvh http://archive.cloudera.com/cdh5/one-click-install/redhat/6/x86_64/cloudera-cdh-5-0.x86_64.rpm
-RUN yum install -y openssh java-1.6.0-openjdk-devel hadoop-hdfs-namenode
+RUN mv /build/cloudera-cdh5.repo /etc/yum.repos.d/ && yum install -y openssh java-1.6.0-openjdk-devel hadoop-hdfs-namenode
 
 # config hadoop
 # you have to configure hostname and ssh public keys first

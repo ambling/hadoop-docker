@@ -9,8 +9,8 @@ $TTL 86400
 
       IN     NS     dns.ambling.org.
 
-              IN     A       172.17.42.100
+              IN     A       172.17.0.4
 
-namenode      IN     A       172.17.42.3
-datanode1     IN     A       172.17.42.4
-dns           IN     A       172.17.42.100
+namenode      IN     A       172.17.0.3
+datanode1     IN     A       172.17.0.5
+dns           IN     A       172.17.0.4
