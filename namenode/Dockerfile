@@ -33,11 +33,11 @@ RUN hdfs namenode -format
 
 # ports for namenode (deprecated, use -p in docker run command, see startup.sh)
 # fs.default.name/fs.defaultFS TCP
-#EXPOSE 8020	
+EXPOSE 8020	
 # dfs.http.address/dfs.namenode.http-address TCP
-#EXPOSE 50070	
+EXPOSE 50070	
 # dfs.https.address/dfs.namenode.https-address TCP
-#EXPOSE 50470	
+EXPOSE 50470	
 
 # change user back to boot
 USER root
@@ -49,4 +49,4 @@ RUN mv /build/supervisord.conf /etc/
 RUN rm -rf /build
 
 # run the supervisor to start service
-CMD supervisord -c /etc/supervisord.conf
+CMD supervisord

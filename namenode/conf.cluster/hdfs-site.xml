@@ -32,7 +32,7 @@
   </property>
   <property>
     <name>dfs.namenode.http-address</name>
-    <value>secondary-namenode.ambling.org:50070</value>
+    <value>namenode.ambling.org:50070</value>
     <description>
       The address and the base port on which the dfs NameNode Web UI will listen.
     </description>

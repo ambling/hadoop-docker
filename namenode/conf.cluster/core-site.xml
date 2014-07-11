@@ -20,6 +20,6 @@
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://namenode-host.ambling.org:8020</value>
+    <value>hdfs://namenode.ambling.org:8020</value>
   </property>
 </configuration>
