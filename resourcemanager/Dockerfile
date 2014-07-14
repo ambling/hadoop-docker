@@ -1,6 +1,6 @@
 # you may have to build this baseimage first from this repository:
 # https://github.com/ambling/baseimage-docker
-FROM centos:supervisor
+FROM hadoop-base:base
 MAINTAINER Ambling <ambling07@gmail.com>
 
 # variables
@@ -9,7 +9,7 @@ MAINTAINER Ambling <ambling07@gmail.com>
 # add chd5 yum repo for centos6 and install hadoop
 RUN mkdir /build
 ADD . /build
-RUN mv /build/cloudera-cdh5.repo /etc/yum.repos.d/ && yum install -y openssh java-1.6.0-openjdk-devel hadoop-yarn-resourcemanager
+RUN yum install -y hadoop-yarn-resourcemanager
 
 # config hadoop
 # you have to configure hostname and ssh public keys first
