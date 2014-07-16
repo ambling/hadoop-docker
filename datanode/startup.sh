@@ -15,7 +15,7 @@ fi
 #echo "container name:"
 #echo $CONTAINER_NAME
 
-docker run -t -d -h $CONTAINER_NAME --name $CONTAINER_NAME --link dnsserver:dnsserver \
+docker run -t -i -h $CONTAINER_NAME --name $CONTAINER_NAME --link dnsserver:dnsserver \
 --link namenode:namenode --link resourcemanager:resourcemanager \
---dns 172.17.0.4 --dns-search ambling.org \
-hadoop-datanode:base
+--dns 172.17.0.39 --dns-search ambling.org \
+hadoop-datanode:base /bin/bash

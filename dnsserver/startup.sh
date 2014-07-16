@@ -5,4 +5,4 @@
 # You should run this script ONLY ONCE if there is nothing unexpected happened.
 # You can just start the container next time if the container is ran from image.
 
-docker run -d -t -h dnsserver --name dnsserver dnsserver:base
+docker run -i -t -h dnsserver --name dnsserver dnsserver:base /bin/bash

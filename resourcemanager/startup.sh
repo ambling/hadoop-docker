@@ -5,7 +5,7 @@
 # You should run this script ONLY ONCE if there is nothing unexpected happened.
 # You can just start the container next time if the container is ran from image.
 
-docker run -t -d -h resourcemanager --name resourcemanager --link dnsserver:dnsserver \
---link namenode:namenode --dns 172.17.0.4 --dns-search ambling.org \
+docker run -t -i -h resourcemanager --name resourcemanager --link dnsserver:dnsserver \
+--link namenode:namenode --dns 172.17.0.39 --dns-search ambling.org \
 -p 8030:8030 -p 8088:8088 -p 8032:8032 -p 8033:8033 -p 8031:8031 \
-hadoop-resourcemanager:base
+hadoop-resourcemanager:base /bin/bash
