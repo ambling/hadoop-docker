@@ -12,7 +12,7 @@ ADD . /build
 RUN yum install -y bind
 
 # config bind
-RUN cd /etc/named && mkdir -p zones/master && cd zones/master && cp /build/db.$YOUR_DOMAIN . && cp /build/db.172.17.42 . && mv /build/named.conf /etc/
+RUN cd /etc/named && mkdir -p zones/master && cd zones/master && cp /build/db.$YOUR_DOMAIN . && cp /build/db.172.17 . && mv /build/named.conf /etc/
 RUN chown -R root:named /etc/named*
 EXPOSE 53
 
