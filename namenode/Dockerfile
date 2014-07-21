@@ -16,8 +16,6 @@ RUN yum install -y hadoop-hdfs-namenode
 RUN cp -r /build/conf.cluster /etc/hadoop/
 RUN alternatives --install /etc/hadoop/conf hadoop-conf /etc/hadoop/conf.cluster 50 
 RUN alternatives --set hadoop-conf /etc/hadoop/conf.cluster
-# remove the limit that reject the container to su
-RUM rm -f /etc/security/limits.d/hdfs.conf /etc/security/limits.d/mapreduce.conf /etc/security/limits.d/yarn.conf
 
 # change user 
 USER hdfs

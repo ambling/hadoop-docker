@@ -9,6 +9,8 @@ FROM centos:supervisor
 RUN mkdir /build
 ADD . /build
 RUN mv /build/cloudera-cdh5.repo /etc/yum.repos.d/ && yum install -y openssh java-1.6.0-openjdk-devel hadoop hadoop-hdfs hadoop-mapreduce hadoop-yarn
+# remove the limit that reject the container to su
+RUM rm -f /etc/security/limits.d/hdfs.conf /etc/security/limits.d/mapreduce.conf /etc/security/limits.d/yarn.conf
 
 # config supervisor
 RUN mv /build/supervisord.conf /etc/
