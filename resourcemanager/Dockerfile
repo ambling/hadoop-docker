@@ -7,8 +7,7 @@ MAINTAINER Ambling <ambling07@gmail.com>
 #ENV key val
 
 # add chd5 yum repo for centos6 and install hadoop
-RUN mkdir /build
-ADD . /build
+ADD . /tmp
 RUN yum install -y hadoop-yarn-resourcemanager
 
 # config hadoop
@@ -44,7 +43,7 @@ EXPOSE 8031
 RUN mv /build/supervisord.conf /etc/
 
 # clean up
-RUN rm -rf /build
+RUN rm -rf /tmp/*
 
 # run the supervisor to start service
 CMD supervisord
