@@ -17,5 +17,5 @@ fi
 
 docker run -t -i -h $CONTAINER_NAME --name $CONTAINER_NAME --link dnsserver:dnsserver \
 --link namenode:namenode --link resourcemanager:resourcemanager \
---dns 172.17.0.39 --dns-search ambling.org \
+--dns 172.17.0.31 --dns-search ambling.org \
 hadoop-datanode:base /bin/bash

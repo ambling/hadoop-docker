@@ -12,7 +12,7 @@ RUN yum install -y hadoop-hdfs-namenode
 
 # config hadoop
 # you have to configure hostname and ssh public keys first
-RUN cp -r /build/conf.cluster /etc/hadoop/
+RUN cp -r /tmp/conf.cluster /etc/hadoop/
 RUN alternatives --install /etc/hadoop/conf hadoop-conf /etc/hadoop/conf.cluster 50 
 RUN alternatives --set hadoop-conf /etc/hadoop/conf.cluster
 
@@ -39,7 +39,7 @@ EXPOSE 50470
 USER root
 
 # config supervisor
-RUN mv /build/supervisord.conf /etc/
+RUN mv /tmp/supervisord.conf /etc/
 
 # clean up
 RUN rm -rf /tmp/*
