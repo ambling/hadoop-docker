@@ -5,4 +5,6 @@
 # You should run this script ONLY ONCE if there is nothing unexpected happened.
 # You can just start the container next time if the container is ran from image.
 
-docker run -i -t -h dnsserver --name dnsserver dnsserver:base /bin/bash
+DNSSERVER=$(docker run -d -i -t -P -h dnsserver --name dnsserver dnsserver:base /bin/bash)
+sudo pipework br1 $DNSSERVER 172.17.42.2/16@172.17.42.1
+#sudo ip addr add 172.17.42.2/16 dev br1

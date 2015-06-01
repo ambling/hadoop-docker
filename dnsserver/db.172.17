@@ -10,5 +10,13 @@ $TTL 86400
 
 17.172.in-addr.arpa.    IN     NS     dns.ambling.org.
 
-3.0.17.172.in-addr.arpa.      IN     PTR    namenode.ambling.org.
-5.0.17.172.in-addr.arpa.      IN     PTR    datanode1.ambling.org.
+1.42.17.172.in-addr.arpa.      IN     PTR    centosvm.ambling.org.
+1.1.17.172.in-addr.arpa.      IN     PTR    datanode11.ambling.org.
+2.1.17.172.in-addr.arpa.      IN     PTR    datanode12.ambling.org.
+3.1.17.172.in-addr.arpa.      IN     PTR    datanode13.ambling.org.
+1.2.17.172.in-addr.arpa.      IN     PTR    datanode21.ambling.org.
+2.2.17.172.in-addr.arpa.      IN     PTR    datanode22.ambling.org.
+3.2.17.172.in-addr.arpa.      IN     PTR    datanode23.ambling.org.
+1.3.17.172.in-addr.arpa.      IN     PTR    datanode31.ambling.org.
+2.3.17.172.in-addr.arpa.      IN     PTR    datanode32.ambling.org.
+3.3.17.172.in-addr.arpa.      IN     PTR    datanode33.ambling.org.

@@ -20,6 +20,10 @@
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://namenode.ambling.org:8020</value>
+    <value>hdfs://centosvm:8020</value>
+  </property>
+  <property>
+    <name>net.topology.script.file.name</name>
+    <value>/etc/hadoop/conf/topology.script.sh</value>
   </property>
 </configuration>

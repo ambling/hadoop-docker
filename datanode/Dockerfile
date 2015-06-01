@@ -8,13 +8,18 @@ MAINTAINER Ambling <ambling07@gmail.com>
 
 # add chd5 yum repo for centos6 and install hadoop
 ADD . /tmp
-RUN yum install -y hadoop-hdfs-datanode hadoop-yarn-nodemanager
+RUN yum install -y hadoop-hdfs-datanode hadoop-yarn-nodemanager spark-worker
 
 # config hadoop
 # you have to configure hostname and ssh public keys first
 RUN cp -r /tmp/conf.cluster /etc/hadoop/
 RUN alternatives --install /etc/hadoop/conf hadoop-conf /etc/hadoop/conf.cluster 50 
 RUN alternatives --set hadoop-conf /etc/hadoop/conf.cluster
+
+# config spark
+RUN cp -r /tmp/conf.dist /etc/spark/ 
+RUN alternatives --install /etc/spark/conf spark-conf /etc/spark/conf.dist 50 
+RUN alternatives --set spark-conf /etc/spark/conf.dist  
 
 # change user 
 USER hdfs

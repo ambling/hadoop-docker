@@ -5,7 +5,7 @@
 # You should run this script ONLY ONCE if there is nothing unexpected happened.
 # You can just start the container next time if the container is ran from image.
 
-CONTAINER_NAME=datanode1
+CONTAINER_NAME=datanode11
 
 if [ $# -gt 0 ]
 then
@@ -15,7 +15,9 @@ fi
 #echo "container name:"
 #echo $CONTAINER_NAME
 
-docker run -t -i -h $CONTAINER_NAME --name $CONTAINER_NAME --link dnsserver:dnsserver \
---link namenode:namenode --link resourcemanager:resourcemanager \
---dns 172.17.0.31 --dns-search ambling.org \
-hadoop-datanode:base /bin/bash
+CONID=$(docker run -d -t -i -h $CONTAINER_NAME --name $CONTAINER_NAME --link dnsserver:dnsserver \
+--dns 172.17.42.2 --dns-search ambling.org \
+hadoop-datanode:base /bin/bash)
+
+sudo pipework br1 $CONID 172.17.1.1/16
+#sudo ip addr add 172.17.1.1/16 dev br1

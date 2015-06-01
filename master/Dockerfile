@@ -38,6 +38,7 @@ EXPOSE 50470
 
 # change user 
 #USER yarn
+USER root
 
 # make necessary directories for yarn
 RUN mkdir -p /var/lib/hadoop-yarn/data/yarn/local /var/lib/hadoop-yarn/data/yarn/logs

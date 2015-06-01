@@ -20,8 +20,8 @@
 <configuration>
   <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>resourcemanager.ambling.org</value>
-  </property>   
+    <value>centosvm.ambling.org</value>
+  </property>
   <property>
     <description>Classpath for typical applications.</description>
     <name>yarn.application.classpath</name>
